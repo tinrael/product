@@ -5,6 +5,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import java.io.IOException;
 
 import org.junit.jupiter.api.Test;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.json.JsonTest;
 import org.springframework.boot.test.json.JacksonTester;
@@ -27,5 +28,18 @@ public class ProductJsonTests {
 		
 		assertThat(jsonContent).hasJsonPathStringValue("@.name");
 		assertThat(jsonContent).extractingJsonPathStringValue("@.name").isEqualTo("Pineapple");
+	}
+	
+	@Test
+	void deserializationTest() throws IOException {
+		String jsonString = """
+				{
+					"id": 15,
+					"name": "Pineapple"
+				}
+				""";
+		Product product = jacksonTester.parseObject(jsonString);
+		
+		assertThat(product).isEqualTo(new Product(15L, "Pineapple"));
 	}
 }
