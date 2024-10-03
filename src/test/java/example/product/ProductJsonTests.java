@@ -17,7 +17,7 @@ public class ProductJsonTests {
 	private JacksonTester<Product> jacksonTester;
 	
 	@Test
-	public void serializationTest() throws IOException {
+	void serializationTest() throws IOException {
 		Product product = new Product(15L, "Pineapple");
 		JsonContent<Product> jsonContent = jacksonTester.write(product);
 		
