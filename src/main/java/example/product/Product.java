@@ -1,5 +1,5 @@
 package example.product;
 
-record Product(long id, String name) {
+record Product(Long id, String name) {
 
 }
