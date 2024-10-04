@@ -2,6 +2,7 @@ package example.product;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -9,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/products")
 public class ProductController {
 	@GetMapping("/{id}")
-	private ResponseEntity<Product> findById() {
-		return ResponseEntity.ok(new Product(15L, "Pineapple"));
+	private ResponseEntity<Product> findById(@PathVariable Long id) {
+		return ResponseEntity.ok(new Product(id, "Pineapple"));
 	}
 }
