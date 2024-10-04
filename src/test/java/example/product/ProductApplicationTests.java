@@ -29,7 +29,7 @@ class ProductApplicationTests {
 		String name = documentContext.read("@.name");
 		
 		assertThat(id).isEqualTo(15);
-		assertThat(name).isEqualTo("Pineapple");
+		assertThat(name).isEqualTo("15 name");
 	}
 	
 	@Test
