@@ -55,6 +55,12 @@ jobs:
         name: Package
         path: build/libs
 
+    - name: Upload test results
+      uses: actions/upload-artifact@v4
+      with:
+        name: Test results
+        path: build/reports/tests/test
+
   dependency-submission:
 
     runs-on: ubuntu-latest
