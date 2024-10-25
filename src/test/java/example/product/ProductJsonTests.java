@@ -12,7 +12,7 @@ import org.springframework.boot.test.json.JacksonTester;
 import org.springframework.boot.test.json.JsonContent;
 
 @JsonTest
-public class ProductJsonTests {
+class ProductJsonTests {
 	@Autowired
 	private JacksonTester<Product> jacksonTester;
 	
