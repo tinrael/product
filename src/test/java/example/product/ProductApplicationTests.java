@@ -31,9 +31,4 @@ class ProductApplicationTests {
 		assertThat(id).isEqualTo(15);
 		assertThat(name).isEqualTo("15 name");
 	}
-	
-	@Test
-	void contextLoads() {
-	}
-
 }
