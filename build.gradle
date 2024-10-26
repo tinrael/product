@@ -51,3 +51,10 @@ jacocoTestReport {
 		xml.required = true
 	}
 }
+
+sonar {
+	properties {
+		property "sonar.projectKey", "product"
+		property "sonar.projectName", "'product'"
+	}
+}
