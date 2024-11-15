@@ -9,6 +9,12 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/products")
 public class ProductController {
+	private final ProductRepository productRepository;
+
+	private ProductController(ProductRepository productRepository) {
+		this.productRepository = productRepository;
+	}
+
 	@GetMapping("/{id}")
 	public ResponseEntity<Product> findById(@PathVariable Long id) {
 		return ResponseEntity.ok(new Product(id, id + " name"));
