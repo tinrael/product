@@ -6,6 +6,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.Optional;
+
 @RestController
 @RequestMapping("/products")
 public class ProductController {
@@ -17,6 +19,13 @@ public class ProductController {
 
 	@GetMapping("/{id}")
 	public ResponseEntity<Product> findById(@PathVariable Long id) {
-		return ResponseEntity.ok(new Product(id, id + " name"));
+		Optional<Product> optional = productRepository.findById(id);
+
+		if (optional.isPresent()) {
+			return ResponseEntity.ok(optional.get());
+		} else {
+			Product product = productRepository.save(new Product(id, id + " name"));
+			return ResponseEntity.ok(product);
+		}
 	}
 }
