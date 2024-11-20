@@ -24,8 +24,7 @@ public class ProductController {
 		if (optional.isPresent()) {
 			return ResponseEntity.ok(optional.get());
 		} else {
-			Product product = productRepository.save(new Product(id, id + " name"));
-			return ResponseEntity.ok(product);
+			return ResponseEntity.ok(productRepository.save(new Product(id, id + " name")));
 		}
 	}
 }
