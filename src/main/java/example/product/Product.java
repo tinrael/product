@@ -1,26 +1,51 @@
 package example.product;
 
-import org.springframework.data.annotation.Id;
-import org.springframework.data.domain.Persistable;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
 
-record Product(@Id Long id, String name) implements Persistable<Long> {
-    /**
-     * Returns the id of the entity.
-     *
-     * @return the id. Can be {@literal null}.
-     */
-    @Override
-    public Long getId() {
-        return this.id;
+import java.util.Objects;
+
+@Entity
+public class Product {
+    @Id
+    private Long id;
+
+    private String name;
+
+    public Product() {
     }
 
-    /**
-     * Returns if the {@code Persistable} is new or was persisted already.
-     *
-     * @return if {@literal true} the object is new.
-     */
+    public Product(Long id, String name) {
+        this.id = id;
+        this.name = name;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
     @Override
-    public boolean isNew() {
-        return true;
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Product product = (Product) o;
+        return Objects.equals(id, product.id) && Objects.equals(name, product.name);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, name);
     }
 }
