@@ -18,7 +18,7 @@ public class ProductController {
 	}
 
 	@GetMapping("/{id}")
-	public ResponseEntity<Product> findById(@PathVariable Long id) {
+	public synchronized ResponseEntity<Product> findById(@PathVariable Long id) {
 		Optional<Product> optional = productRepository.findById(id);
 
 		if (optional.isPresent()) {
