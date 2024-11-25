@@ -42,12 +42,14 @@ export const options = {
 };
 
 export default function () {
-  const response = http.get('http://localhost:8080/products/15');
+  // const response = http.get('http://localhost:8080/products/15');
+  const response = http.get('https://test.k6.io/contacts.php');
   check(response, { 'status was 200': (r) => r.status == 200 });
   sleep(0.5); // 500ms
 }
 
 export function foo() {
-  const response = http.get('http://localhost:8080/products/15');
+  // const response = http.get('http://localhost:8080/products/15');
+  const response = http.get('https://test.k6.io/contacts.php');
   check(response, { 'status was 200': (r) => r.status == 200 });
 }
