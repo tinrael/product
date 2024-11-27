@@ -22,3 +22,9 @@ jobs:
         with:
           path: script.js
           flags: '--out json=k6_test_results.json'
+
+      - name: Upload test results
+        uses: actions/upload-artifact@v4
+        with:
+          name: Test_results
+          path: k6_test_results.json
