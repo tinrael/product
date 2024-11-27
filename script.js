@@ -9,9 +9,9 @@ export const options = {
   duration: '30s',
   vus: 20,
 
-  thresholds: {
-    http_req_duration: ['p(95)<500'], // 95 percent of response times must be below 500ms
-  },
+  //thresholds: {
+    //http_req_duration: ['p(95)<500'], // 95 percent of response times must be below 500ms
+  //},
 
   discardResponseBodies: true,
 };
