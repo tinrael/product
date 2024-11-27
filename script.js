@@ -3,7 +3,7 @@ import { check, sleep } from 'k6';
 
 export const options = {
   cloud: {
-     name: 'Hello k6 cloud!'
+     name: 'script.js'
   },
 
   duration: '30s',
