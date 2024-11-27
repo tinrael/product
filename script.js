@@ -2,9 +2,9 @@ import http from 'k6/http';
 import { check, sleep } from 'k6';
 
 export const options = {
-  //cloud: {
-     //name: "script.js"
-  //},
+  cloud: {
+     name: 'Hello k6 cloud!'
+  },
 
   duration: '30s',
   vus: 20,
