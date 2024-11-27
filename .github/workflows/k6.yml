@@ -21,4 +21,4 @@ jobs:
           K6_CLOUD_PROJECT_ID: ${{ secrets.K6_CLOUD_PROJECT_ID }}
         with:
           path: script.js
-          flags: --out json=k6_test_results.json
+          flags: '--out json=k6_test_results.json'
